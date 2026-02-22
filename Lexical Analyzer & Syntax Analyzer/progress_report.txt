@@ -1,0 +1,152 @@
+PROGRESS REPORT - Lexical Analyzer & Syntax Analyzer
+======================================================
+
+
+
+Summary: Implemented recognition and logging of all reserved keywords. Each keyword is recognized as a unique token 
+(e.g., <IF>, <ELSE>, <FOR>) with line number and lexeme logged for output. And added command of the scripts
+
+
+Implementation:
+
+lex_anlyzer.l -->
+-----------------------------------
+
+
+/* Keep keyword rules before {id} so keywords are not matched as ID */
+"if"        {
+                loglist="Line no "+to_string(lines)+": Token <IF> Lexeme "+yytext+" found"+"\n"+"\n";
+			    outlog<<loglist;
+                return IF; }
+
+"else"      {
+                loglist="Line no "+to_string(lines)+": Token <ELSE> Lexeme "+yytext+" found"+"\n"+"\n";
+			    outlog<<loglist;
+                return ELSE; }
+
+"for"       {
+                loglist="Line no "+to_string(lines)+": Token <FOR> Lexeme "+yytext+" found"+"\n"+"\n";
+			    outlog<<loglist;
+                return FOR; }
+
+"while"     {
+                loglist="Line no "+to_string(lines)+": Token <WHILE> Lexeme "+yytext+" found"+"\n"+"\n";
+			    outlog<<loglist;
+                return WHILE; }
+
+"do"        {
+                loglist="Line no "+to_string(lines)+": Token <DO> Lexeme "+yytext+" found"+"\n"+"\n";
+			    outlog<<loglist;
+                return DO; }
+
+"break"     {
+                loglist="Line no "+to_string(lines)+": Token <BREAK> Lexeme "+yytext+" found"+"\n"+"\n";
+			    outlog<<loglist;
+                return BREAK; }
+
+"int"       {
+                loglist="Line no "+to_string(lines)+": Token <INT> Lexeme "+yytext+" found"+"\n"+"\n";
+			    outlog<<loglist;
+                return INT; }
+
+"char"      {
+                loglist="Line no "+to_string(lines)+": Token <CHAR> Lexeme "+yytext+" found"+"\n"+"\n";
+			    outlog<<loglist;
+                return CHAR; }
+
+"float"     {
+                loglist="Line no "+to_string(lines)+": Token <FLOAT> Lexeme "+yytext+" found"+"\n"+"\n";
+			    outlog<<loglist;
+                return FLOAT; }
+
+"double"    {
+                loglist="Line no "+to_string(lines)+": Token <DOUBLE> Lexeme "+yytext+" found"+"\n"+"\n";
+			    outlog<<loglist;
+                return DOUBLE; }
+
+"void"      {
+                loglist="Line no "+to_string(lines)+": Token <VOID> Lexeme "+yytext+" found"+"\n"+"\n";
+			    outlog<<loglist;
+                return VOID; }
+
+"return"    {
+                loglist="Line no "+to_string(lines)+": Token <RETURN> Lexeme "+yytext+" found"+"\n"+"\n";
+			    outlog<<loglist;
+                return RETURN; }
+
+"switch"    {
+                loglist="Line no "+to_string(lines)+": Token <SWITCH> Lexeme "+yytext+" found"+"\n"+"\n";
+			    outlog<<loglist;
+                return SWITCH; }
+
+"case"      {
+                loglist="Line no "+to_string(lines)+": Token <CASE> Lexeme "+yytext+" found"+"\n"+"\n";
+			    outlog<<loglist;
+                return CASE; }
+
+"default"   {
+                loglist="Line no "+to_string(lines)+": Token <DEFAULT> Lexeme "+yytext+" found"+"\n"+"\n";
+			    outlog<<loglist;
+                return DEFAULT; }
+
+"continue"  {
+                loglist="Line no "+to_string(lines)+": Token <CONTINUE> Lexeme "+yytext+" found"+"\n"+"\n";
+			    outlog<<loglist;
+                return CONTINUE; }
+
+"goto"      {
+                loglist="Line no "+to_string(lines)+": Token <GOTO> Lexeme "+yytext+" found"+"\n"+"\n";
+			    outlog<<loglist;
+                return GOTO; }
+
+"printf"    {
+                loglist="Line no "+to_string(lines)+": Token <PRINTF> Lexeme "+yytext+" found"+"\n"+"\n";
+			    outlog<<loglist;
+                return PRINTF; }
+
+--- END OF KEYWORDS ---
+
+IDENTIFIER AND OPERATOR RECOGNITION
+-----------------------------------
+Summary: Implemented ID token recognition with symbol_info object creation. Also added support for ADDOP (+, -) 
+and COMMA tokens.
+
+{id}         {
+                symbol_info *s = new symbol_info((string)yytext,"ID");
+                yylval = (YYSTYPE)s;
+                loglist="Line no "+to_string(lines)+": Token <ID> Lexeme "+yytext+" found"+"\n"+"\n";
+			    outlog<<loglist;
+                return ID;
+            }
+
+"+"|"-"	    {
+                symbol_info *s = new symbol_info((string)yytext,"ADDOP");
+                yylval = (YYSTYPE)s;
+                loglist="Line no "+to_string(lines)+": Token <ADDOP> Lexeme "+yytext+" found"+"\n"+"\n";
+			    outlog<<loglist;
+                return ADDOP;
+		    }
+
+","        { 
+                loglist="Line no "+to_string(lines)+": Token <COMMA> Lexeme "+yytext+" found"+"\n"+"\n";
+			    outlog<<loglist;               
+                return COMMA; }
+
+
+
+script.sh -->
+-----------------------------------
+#!/bin/bash
+
+yacc -d -y --debug --verbose 22101004.y
+echo 'Generated the parser C file as well the header file'
+g++ -w -c -o y.o y.tab.c
+echo 'Generated the parser object file'
+flex 22101004.l
+echo 'Generated the scanner C file'
+g++ -fpermissive -w -c -o l.o lex.yy.c
+
+
+
+
+
