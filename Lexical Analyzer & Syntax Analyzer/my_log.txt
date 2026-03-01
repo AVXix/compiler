@@ -66,9 +66,11 @@ At line no: 3 statement : RETURN expression SEMICOLON
 
 return a;
 
+
 At line no: 3 statements : statement 
 
 return a;
+
 
 Line no 4: Token <RCURL> Lexeme } found
 
@@ -78,12 +80,14 @@ At line no: 4 compound_statement : LCURL statements RCURL
 return a;
 }
 
+
 At line no: 4 func_definition : type_specifier ID LPAREN parameter_list RPAREN compound_statement 
 
 int bar(int a)
 {
 return a;
 }
+
 
 At line no: 4 unit : func_definition 
 
@@ -92,12 +96,14 @@ int bar(int a)
 return a;
 }
 
+
 At line no: 4 program : unit 
 
 int bar(int a)
 {
 return a;
 }
+
 
 Line no 6: Token <INT> Lexeme int found
 
@@ -157,13 +163,16 @@ At line no: 8 expression_statement : expression SEMICOLON
 
 a=56;
 
+
 At line no: 8 statement : expression_statement 
 
 a=56;
 
+
 At line no: 8 statements : statement 
 
 a=56;
+
 
 Line no 9: Token <IF> Lexeme if found
 
@@ -243,7 +252,7 @@ a%2==0
 
 Line no 10: Token <LCURL> Lexeme { found
 
-Line no 11: Token <PRINTLN> Lexeme printf found
+Line no 11: Token <PRINTF> Lexeme printf found
 
 Line no 11: Token <LPAREN> Lexeme ( found
 
@@ -253,13 +262,15 @@ Line no 11: Token <RPAREN> Lexeme ) found
 
 Line no 11: Token <SEMICOLON> Lexeme ; found
 
-At line no: 11 statement : PRINTLN LPAREN ID RPAREN SEMICOLON 
+At line no: 11 statement : PRINTF LPAREN ID RPAREN SEMICOLON 
 
 printf(a);
+
 
 At line no: 11 statements : statement 
 
 printf(a);
+
 
 Line no 12: Token <RCURL> Lexeme } found
 
@@ -269,11 +280,13 @@ At line no: 12 compound_statement : LCURL statements RCURL
 printf(a);
 }
 
+
 At line no: 12 statement : compound_statement 
 
 {
 printf(a);
 }
+
 
 Line no 13: Token <ELSE> Lexeme else found
 
@@ -355,7 +368,7 @@ a%2==1
 
 Line no 14: Token <LCURL> Lexeme { found
 
-Line no 15: Token <PRINTLN> Lexeme printf found
+Line no 15: Token <PRINTF> Lexeme printf found
 
 Line no 15: Token <LPAREN> Lexeme ( found
 
@@ -365,13 +378,15 @@ Line no 15: Token <RPAREN> Lexeme ) found
 
 Line no 15: Token <SEMICOLON> Lexeme ; found
 
-At line no: 15 statement : PRINTLN LPAREN ID RPAREN SEMICOLON 
+At line no: 15 statement : PRINTF LPAREN ID RPAREN SEMICOLON 
 
 printf(a);
+
 
 At line no: 15 statements : statement 
 
 printf(a);
+
 
 Line no 16: Token <RCURL> Lexeme } found
 
@@ -381,17 +396,19 @@ At line no: 16 compound_statement : LCURL statements RCURL
 printf(a);
 }
 
+
 At line no: 16 statement : compound_statement 
 
 {
 printf(a);
 }
 
+
 Line no 17: Token <ELSE> Lexeme else found
 
 Line no 18: Token <LCURL> Lexeme { found
 
-Line no 19: Token <PRINTLN> Lexeme printf found
+Line no 19: Token <PRINTF> Lexeme printf found
 
 Line no 19: Token <LPAREN> Lexeme ( found
 
@@ -401,13 +418,15 @@ Line no 19: Token <RPAREN> Lexeme ) found
 
 Line no 19: Token <SEMICOLON> Lexeme ; found
 
-At line no: 19 statement : PRINTLN LPAREN ID RPAREN SEMICOLON 
+At line no: 19 statement : PRINTF LPAREN ID RPAREN SEMICOLON 
 
 printf(a);
+
 
 At line no: 19 statements : statement 
 
 printf(a);
+
 
 Line no 20: Token <RCURL> Lexeme } found
 
@@ -417,11 +436,13 @@ At line no: 20 compound_statement : LCURL statements RCURL
 printf(a);
 }
 
+
 At line no: 20 statement : compound_statement 
 
 {
 printf(a);
 }
+
 
 At line no: 20 statement : IF LPAREN expression RPAREN statement ELSE statement 
 
@@ -433,6 +454,7 @@ else
 {
 printf(a);
 }
+
 
 At line no: 20 statement : IF LPAREN expression RPAREN statement ELSE statement 
 
@@ -449,6 +471,7 @@ else
 {
 printf(a);
 }
+
 
 At line no: 20 statements : statements statement 
 
@@ -466,6 +489,7 @@ else
 {
 printf(a);
 }
+
 
 Line no 21: Token <RCURL> Lexeme } found
 
@@ -488,6 +512,7 @@ printf(a);
 }
 }
 
+
 At line no: 21 func_definition : type_specifier ID LPAREN RPAREN compound_statement 
 
 int main()
@@ -507,6 +532,7 @@ else
 printf(a);
 }
 }
+
 
 At line no: 21 unit : func_definition 
 
@@ -528,12 +554,14 @@ printf(a);
 }
 }
 
+
 At line no: 21 program : program unit 
 
 int bar(int a)
 {
 return a;
 }
+
 int main()
 {
 a=56;
@@ -552,7 +580,7 @@ printf(a);
 }
 }
 
+
 At line no: 21 start : program 
 
-
-Total lines: 21
+Total line: 21

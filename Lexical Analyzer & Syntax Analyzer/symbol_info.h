@@ -19,10 +19,4 @@ public:
     {
         return sym_name;
     }
-
-    string gettype()
-    {
-        return sym_type;
-    }
-
 };

@@ -101,7 +101,7 @@ Line no 3: Token <ID> Lexeme b found
 
 At line no: 3 parameter_list : parameter_list COMMA type_specifier ID 
 
-int a,int b
+int a, int b
 
 Line no 3: Token <RPAREN> Lexeme ) found
 
@@ -173,9 +173,11 @@ At line no: 4 statement : RETURN expression SEMICOLON
 
 return a+b;
 
+
 At line no: 4 statements : statement 
 
 return a+b;
+
 
 Line no 5: Token <RCURL> Lexeme } found
 
@@ -185,28 +187,32 @@ At line no: 5 compound_statement : LCURL statements RCURL
 return a+b;
 }
 
+
 At line no: 5 func_definition : type_specifier ID LPAREN parameter_list RPAREN compound_statement 
 
-int var(int a,int b)
+int var(int a, int b)
 {
 return a+b;
 }
+
 
 At line no: 5 unit : func_definition 
 
-int var(int a,int b)
+int var(int a, int b)
 {
 return a+b;
 }
+
 
 At line no: 5 program : program unit 
 
 int x,y,z;
 float a;
-int var(int a,int b)
+int var(int a, int b)
 {
 return a+b;
 }
+
 
 Line no 7: Token <VOID> Lexeme void found
 
@@ -266,13 +272,16 @@ At line no: 8 expression_statement : expression SEMICOLON
 
 x=2;
 
+
 At line no: 8 statement : expression_statement 
 
 x=2;
 
+
 At line no: 8 statements : statement 
 
 x=2;
+
 
 Line no 9: Token <ID> Lexeme y found
 
@@ -342,14 +351,17 @@ At line no: 9 expression_statement : expression SEMICOLON
 
 y=x-5;
 
+
 At line no: 9 statement : expression_statement 
 
 y=x-5;
+
 
 At line no: 9 statements : statements statement 
 
 x=2;
 y=x-5;
+
 
 Line no 10: Token <RCURL> Lexeme } found
 
@@ -360,6 +372,7 @@ x=2;
 y=x-5;
 }
 
+
 At line no: 10 func_definition : type_specifier ID LPAREN RPAREN compound_statement 
 
 void foo()
@@ -367,6 +380,7 @@ void foo()
 x=2;
 y=x-5;
 }
+
 
 At line no: 10 unit : func_definition 
 
@@ -376,19 +390,22 @@ x=2;
 y=x-5;
 }
 
+
 At line no: 10 program : program unit 
 
 int x,y,z;
 float a;
-int var(int a,int b)
+int var(int a, int b)
 {
 return a+b;
 }
+
 void foo()
 {
 x=2;
 y=x-5;
 }
+
 
 Line no 12: Token <INT> Lexeme int found
 
@@ -484,8 +501,7 @@ float d;
 
 At line no: 13 statements : statements statement 
 
-int a[2],c,i,j;
-float d;
+int a[2],c,i,j;float d;
 
 Line no 14: Token <ID> Lexeme a found
 
@@ -561,15 +577,16 @@ At line no: 14 expression_statement : expression SEMICOLON
 
 a[0];
 
+
 At line no: 14 statement : expression_statement 
 
 a[0];
 
+
 At line no: 14 statements : statements statement 
 
-int a[2],c,i,j;
-float d;
-a[0];
+int a[2],c,i,j;float d;a[0];
+
 
 Line no 15: Token <ID> Lexeme a found
 
@@ -649,16 +666,17 @@ At line no: 15 expression_statement : expression SEMICOLON
 
 a[1]=5;
 
+
 At line no: 15 statement : expression_statement 
 
 a[1]=5;
 
+
 At line no: 15 statements : statements statement 
 
-int a[2],c,i,j;
-float d;
-a[0];
+int a[2],c,i,j;float d;a[0];
 a[1]=5;
+
 
 Line no 16: Token <ID> Lexeme i found
 
@@ -800,17 +818,18 @@ At line no: 16 expression_statement : expression SEMICOLON
 
 i=a[0]+a[1];
 
+
 At line no: 16 statement : expression_statement 
 
 i=a[0]+a[1];
 
+
 At line no: 16 statements : statements statement 
 
-int a[2],c,i,j;
-float d;
-a[0];
+int a[2],c,i,j;float d;a[0];
 a[1]=5;
 i=a[0]+a[1];
+
 
 Line no 17: Token <ID> Lexeme j found
 
@@ -1008,18 +1027,19 @@ At line no: 17 expression_statement : expression SEMICOLON
 
 j=2*3+(5%3<4&&8)||2;
 
+
 At line no: 17 statement : expression_statement 
 
 j=2*3+(5%3<4&&8)||2;
 
+
 At line no: 17 statements : statements statement 
 
-int a[2],c,i,j;
-float d;
-a[0];
+int a[2],c,i,j;float d;a[0];
 a[1]=5;
 i=a[0]+a[1];
 j=2*3+(5%3<4&&8)||2;
+
 
 Line no 18: Token <ID> Lexeme d found
 
@@ -1111,29 +1131,29 @@ At line no: 18 logic_expression : rel_expression
 
 At line no: 18 arguments : arguments COMMA logic_expression 
 
-1,2*3
+112*3
 
 At line no: 18 argument_list : arguments 
 
-1,2*3
+112*3
 
 At line no: 18 factor : ID LPAREN argument_list RPAREN 
 
-var(1,2*3)
+var(112*3)
 
 At line no: 18 unary_expression : factor 
 
-var(1,2*3)
+var(112*3)
 
 At line no: 18 term : unary_expression 
 
-var(1,2*3)
+var(112*3)
 
 Line no 18: Token <ADDOP> Lexeme + found
 
 At line no: 18 simple_expression : term 
 
-var(1,2*3)
+var(112*3)
 
 Line no 18: Token <CONST_FLOAT> Lexeme 3.5 found
 
@@ -1169,37 +1189,38 @@ Line no 18: Token <SEMICOLON> Lexeme ; found
 
 At line no: 18 simple_expression : simple_expression ADDOP term 
 
-var(1,2*3)+3.5*2
+var(112*3)+3.5*2
 
 At line no: 18 rel_expression : simple_expression 
 
-var(1,2*3)+3.5*2
+var(112*3)+3.5*2
 
 At line no: 18 logic_expression : rel_expression 
 
-var(1,2*3)+3.5*2
+var(112*3)+3.5*2
 
 At line no: 18 expression : variable ASSIGNOP logic_expression 
 
-d=var(1,2*3)+3.5*2
+d=var(112*3)+3.5*2
 
 At line no: 18 expression_statement : expression SEMICOLON 
 
-d=var(1,2*3)+3.5*2;
+d=var(112*3)+3.5*2;
+
 
 At line no: 18 statement : expression_statement 
 
-d=var(1,2*3)+3.5*2;
+d=var(112*3)+3.5*2;
+
 
 At line no: 18 statements : statements statement 
 
-int a[2],c,i,j;
-float d;
-a[0];
+int a[2],c,i,j;float d;a[0];
 a[1]=5;
 i=a[0]+a[1];
 j=2*3+(5%3<4&&8)||2;
-d=var(1,2*3)+3.5*2;
+d=var(112*3)+3.5*2;
+
 
 Line no 19: Token <RETURN> Lexeme return found
 
@@ -1239,86 +1260,83 @@ At line no: 19 statement : RETURN expression SEMICOLON
 
 return 0;
 
+
 At line no: 19 statements : statements statement 
 
-int a[2],c,i,j;
-float d;
-a[0];
+int a[2],c,i,j;float d;a[0];
 a[1]=5;
 i=a[0]+a[1];
 j=2*3+(5%3<4&&8)||2;
-d=var(1,2*3)+3.5*2;
+d=var(112*3)+3.5*2;
 return 0;
+
 
 Line no 20: Token <RCURL> Lexeme } found
 
 At line no: 20 compound_statement : LCURL statements RCURL 
 
 {
-int a[2],c,i,j;
-float d;
-a[0];
+int a[2],c,i,j;float d;a[0];
 a[1]=5;
 i=a[0]+a[1];
 j=2*3+(5%3<4&&8)||2;
-d=var(1,2*3)+3.5*2;
+d=var(112*3)+3.5*2;
 return 0;
 }
+
 
 At line no: 20 func_definition : type_specifier ID LPAREN RPAREN compound_statement 
 
 int main()
 {
-int a[2],c,i,j;
-float d;
-a[0];
+int a[2],c,i,j;float d;a[0];
 a[1]=5;
 i=a[0]+a[1];
 j=2*3+(5%3<4&&8)||2;
-d=var(1,2*3)+3.5*2;
+d=var(112*3)+3.5*2;
 return 0;
 }
+
 
 At line no: 20 unit : func_definition 
 
 int main()
 {
-int a[2],c,i,j;
-float d;
-a[0];
+int a[2],c,i,j;float d;a[0];
 a[1]=5;
 i=a[0]+a[1];
 j=2*3+(5%3<4&&8)||2;
-d=var(1,2*3)+3.5*2;
+d=var(112*3)+3.5*2;
 return 0;
 }
+
 
 At line no: 20 program : program unit 
 
 int x,y,z;
 float a;
-int var(int a,int b)
+int var(int a, int b)
 {
 return a+b;
 }
+
 void foo()
 {
 x=2;
 y=x-5;
 }
+
 int main()
 {
-int a[2],c,i,j;
-float d;
-a[0];
+int a[2],c,i,j;float d;a[0];
 a[1]=5;
 i=a[0]+a[1];
 j=2*3+(5%3<4&&8)||2;
-d=var(1,2*3)+3.5*2;
+d=var(112*3)+3.5*2;
 return 0;
 }
 
+
 At line no: 21 start : program 
 
-
-Total lines: 21
+Total line: 21
