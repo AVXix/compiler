@@ -1,0 +1,22 @@
+Progress Report 
+
+
+scope_table.h
+
+- Added required header includes: vector, list, string, and fstream.
+- Added using namespace std; so the STL container and stream types are used directly.
+- Implemented hash_function(string name).
+  The function computes the sum of ASCII values of the characters in the symbol name and returns sum % bucket_count.
+- Implemented the parameterized constructor:
+  scope_table(int bucket_count, int unique_id, scope_table *parent_scope)
+  This initializes bucket_count, unique_id, parent_scope, and resizes the hash table.
+- Implemented get_parent_scope().
+- Implemented get_unique_id().
+- Implemented lookup_in_scope(symbol_info* symbol).
+  This searches the appropriate hashed bucket and returns the matching symbol pointer if found.
+- Implemented insert_in_scope(symbol_info* symbol).
+  This checks for duplicates in the current scope before inserting the symbol.
+- Implemented delete_from_scope(symbol_info* symbol).
+  This searches the hashed bucket, removes the symbol if present, and returns success or failure.
+- Moved these implementations directly inside the class body, so the methods are now defined inline in the header.
+- The declaration scope_table(); that exists in Files/scope_table.h is no longer present in the root version.

@@ -503,7 +503,7 @@ int main(int argc, char *argv[])
 		cout<<"Enter the filename: "<<endl;
 	}
 	yyin = fopen(argv[1], "r");
-	outlog.open("my_log2.txt", ios::trunc);
+	outlog.open("my_log.txt", ios::trunc);
     
 	if(yyin == NULL)
 	{
