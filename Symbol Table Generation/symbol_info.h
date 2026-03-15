@@ -7,44 +7,40 @@ private:
     string name;
     string type;
 
-    // Write necessary attributes to store what type of symbol it is (variable/array/function)
-    // Write necessary attributes to store the type/return type of the symbol (int/float/void/...)
-    // Write necessary attributes to store the parameters of a function
-    // Write necessary attributes to store the array size if the symbol is an array
+    string symbolType; 
+    string dataType; 
+    int arraySize;
+    vector<pair<string, string>> parameters; 
 
 public:
+    // This is used to pass lists of variables/parameters up the parse tree in YACC
+    vector<symbol_info*> decl_list;
+
     symbol_info(string name, string type)
     {
         this->name = name;
         this->type = type;
+        this->symbolType = "";
+        this->dataType = "";
+        this->arraySize = 0;
     }
-    string get_name()
-    {
-        return name;
-    }
-        string getname() {
-            return name;
-        }
+    
+    string get_name() { return name; }
+    string get_type() { return type; }
+    void set_name(string name) { this->name = name; }
+    void set_type(string type) { this->type = type; }
+    
+    string get_symbolType() { return symbolType; }
+    void set_symbolType(string symbolType) { this->symbolType = symbolType; }
+    
+    string get_dataType() { return dataType; }
+    void set_dataType(string dataType) { this->dataType = dataType; }
+    
+    int get_arraySize() { return arraySize; }
+    void set_arraySize(int arraySize) { this->arraySize = arraySize; }
+    
+    vector<pair<string, string>>& get_parameters() { return parameters; }
+    void add_parameter(string type, string name) { parameters.push_back({type, name}); }
 
-        void print(ofstream& outlog) const {
-            outlog << "<" << name << ", " << type << "> ";
-        }
-    string get_type()
-    {
-        return type;
-    }
-    void set_name(string name)
-    {
-        this->name = name;
-    }
-    void set_type(string type)
-    {
-        this->type = type;
-    }
-    // Write necessary functions to set and get the attributes
-
-    ~symbol_info()
-    {
-        // Write necessary code to deallocate memory, if necessary
-    }
+    ~symbol_info() {}
 };
